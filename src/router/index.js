@@ -29,19 +29,22 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-    const authRequiredroutes = ["HomePage"]
+    const authRequiredRoutes = ["HomePage"]
     const authNotRequiredRoutes = ["Login", "Register"]
     const _isAuthenticated = store.getters._isAuthenticated
     if (authNotRequiredRoutes.indexOf(to.name) > -1 && _isAuthenticated) {
         next(false);
     }
-    if (authRequiredroutes.indexOf(to.name) > -1) {
-        if (_isAuthenticated) next()
+    if (authRequiredRoutes.indexOf(to.name) > -1) {
+        if (_isAuthenticated) next();
         else next({ name: "Login" });
     }
     console.log("to", to);
     console.log("from", from);
-    next();
+    next()
+
+
+
 })
 
 export default router;

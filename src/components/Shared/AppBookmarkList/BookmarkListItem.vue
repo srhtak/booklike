@@ -1,13 +1,79 @@
+<script>
+import { mapGetters } from "vuex";
+export default {
+  methods: {
+    addBookmark() {
+      console.log("userLikes", this._userBookmarks);
+      let bookmarks = [...this._userBookmarks, this.item.id];
+      if (!this.alreadyBookmarked) {
+        bookmarks = [...bookmarks, this.item.id];
+      } else {
+        bookmarks = bookmarks.filter((l) => l != this.item.id);
+      }
+
+      this.$appAxios
+        .patch(`/users/${this._currentUser.id}`, { bookmarks })
+        .then(() => {
+          this.$store.commit("setBookmark", bookmarks);
+        });
+    },
+    likeItem() {
+      console.log("userLikes", this._userLikes);
+      let likes = [...this._userLikes, this.item.id];
+      if (!this.alreadyLiked) {
+        likes = [...likes, this.item.id];
+      } else {
+        likes = likes.filter((l) => l != this.item.id);
+      }
+
+      this.$appAxios
+        .patch(`/users/${this._currentUser.id}`, { likes })
+        .then((like_response) => {
+          console.log(like_response);
+          this.$store.commit("uptadeLikes", likes);
+        });
+    },
+  },
+  computed: {
+    categoryName() {
+      return this.item?.category?.title || "-";
+    },
+    userName() {
+      return this.item?.user?.fullname || "-";
+    },
+    ...mapGetters(["_currentUser", "_userLikes", "_userBookmarks"]),
+    alreadyLiked() {
+      return this._userLikes?.indexOf(this.item.id) > -1;
+    },
+    alreadyBookmarked() {
+      return this._userBookmarks?.indexOf(this.item.id) > -1;
+    },
+  },
+  props: {
+    item: {
+      type: Object,
+      required: true,
+      default: () => {},
+    },
+  },
+};
+</script>
+
 <template>
   <div class="bg-white flex flex-col gap-x-3 rounded-md shadow-sm">
     <div class="p-3">
       <a
-        href="#"
+        :href="item.url"
+        target="_blank"
         class="hover:text-black font-bold text-l mb-1 text-gray-600 text-center"
-        >Vue3 Dokümantasyon</a
+        >{{ item.title || "-" }}</a
       >
       <div class="flex items-center justify-center mt-2 gap-x-1">
-        <button class="like-btn group">
+        <button
+          class="like-btn group"
+          :class="{ 'bookmark-item-active': alreadyLiked }"
+          @click="likeItem"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="fill-current group-hover:text-white"
@@ -21,7 +87,11 @@
             />
           </svg>
         </button>
-        <button class="bookmark-btn group bookmark-item-active">
+        <button
+          @click="addBookmark"
+          :class="{ 'bookmark-item-active': alreadyBookmarked }"
+          class="bookmark-btn group"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="fill-current group-hover:text-white"
@@ -51,26 +121,22 @@
               />
             </svg>
             <p class="details-container">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Similique nemo consequatur a accusamus assumenda laborum
-              consequuntur explicabo dolor, odit eligendi voluptate illum itaque
-              accusantium, cumque tenetur cupiditate illo libero dolores!
+              {{ item.description }}
             </p>
           </button>
         </div>
       </div>
       <div class="text-xs text-gray-400 mt-2 flex justify-between">
-        <a href="#" class="hover:text-black"> Serhat Ak</a>
+        <a href="#" class="hover:text-black"> {{ userName }}</a>
         <span>14 Mart</span>
       </div>
     </div>
-    <div class="bg-red-200 p-1 text-red-900 text-center text-sm">Vue.js</div>
+    <div class="bg-red-200 p-1 text-red-900 text-center text-sm">
+      {{ categoryName }}
+    </div>
   </div>
 </template>
 
-<script>
-export default {};
-</script>
 
 <style>
 </style>

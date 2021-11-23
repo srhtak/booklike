@@ -1,7 +1,6 @@
 <script>
 import cryptoJS from "crypto-js";
 export default {
-  //TODO: Define userData
   data() {
     return {
       userData: {
@@ -18,11 +17,6 @@ export default {
   // ).toString(cryptoJS.enc.Utf8);
   // console.log(decryptedPassword);
   methods: {
-    //TODO: define register method with cryptoJs(don't remember define key)
-    //TODO: use HmacSHA1 function for crypto password
-    //TODO: post userData with cryptedPassword
-    //TODO: then push HomePage
-    //TODO: change userData values includes empty
     onSave() {
       const password = cryptoJS
         .HmacSHA1(this.userData.password, this.$store.getters._saltKey)

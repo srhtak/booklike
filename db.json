@@ -1,66 +1,127 @@
 {
   "users": [
     {
-      "username": "srht",
-      "fullname": "Serhat",
+      "username": "srhtak",
+      "fullname": "serhat",
       "password": "f95936f37df423d87d65257a8747f1cbf3ab5946",
-      "id": 1
+      "id": 1,
+      "likes": [
+        2,
+        2,
+        3,
+        3,
+        1,
+        1
+      ],
+      "bookmarks": [
+        4,
+        4,
+        1,
+        1,
+        3,
+        3
+      ]
     },
     {
-      "username": "abe29292",
-      "fullname": "serhatabe",
-      "password": {
-        "words": [
-          865058778,
-          1162609983,
-          -349821854,
-          1808096235,
-          1540989662
-        ],
-        "sigBytes": 20
-      },
+      "username": "srhtak2",
+      "fullname": "Serhat",
+      "password": "f95936f37df423d87d65257a8747f1cbf3ab5946",
       "id": 2
     },
     {
-      "username": "serhatab992",
-      "fullname": "serhatabe23",
-      "password": "d13ede7402e7c2002b5b976aaef91359d5bdedc6",
+      "username": "srhtak3",
+      "fullname": "serhat",
+      "password": "f6fa39dbf9d5905c3f7ed608f01812cdf5649ba5",
       "id": 3
     },
     {
-      "username": "tmddd",
-      "fullname": "tamad",
-      "password": {
-        "words": [
-          1202710033,
-          -726043895,
-          -1715484148,
-          -1152166481,
-          508326088
-        ],
-        "sigBytes": 20
-      },
+      "username": "example",
+      "fullname": "last",
+      "password": "9b30c7c3de4ef8286efb9050d2723d65f46b9094",
       "id": 4
     },
     {
-      "username": "tostrngdnm",
-      "fullname": "tostring",
-      "password": "02c4a45d05d255d74c6e4a81af6b823fea59228a",
+      "username": "srhtak2",
+      "fullname": "Serhat Ak",
+      "password": "fed39816fa6a446a73b5cc4b0986aec3d70bdf8e",
+      "id": 5,
+      "likes": [
+        6
+      ]
+    }
+  ],
+  "bookmark": [
+    {
+      "title": "title",
+      "url": "url",
+      "categoryId": 1,
+      "description": "best framework",
+      "userId": 1,
+      "created_at": "2021-11-21T15:02:38.101Z",
+      "id": 1
+    },
+    {
+      "title": "randomtitle",
+      "url": "randomurl",
+      "categoryId": 3,
+      "description": "randomdescription",
+      "userId": 1,
+      "created_at": "2021-11-21T18:28:52.249Z",
+      "id": 2
+    },
+    {
+      "title": "randomtitle",
+      "url": "url...",
+      "categoryId": 1,
+      "description": "asdfasdfasdf",
+      "userId": 1,
+      "created_at": "2021-11-21T18:39:09.875Z",
+      "id": 3
+    },
+    {
+      "title": "newTitle",
+      "url": "www.google.com",
+      "categoryId": 1,
+      "description": "Last description",
+      "userId": 1,
+      "created_at": "2021-11-21T20:59:43.445Z",
+      "id": 4
+    },
+    {
+      "title": "Add srhtak2",
+      "url": "url....",
+      "categoryId": 2,
+      "description": "new BookMark added",
+      "userId": 5,
+      "created_at": "2021-11-22T15:06:12.099Z",
       "id": 5
     },
     {
-      "username": "lstxmpl",
-      "fullname": "lastexample",
-      "password": "d13ede7402e7c2002b5b976aaef91359d5bdedc6",
+      "title": "web title",
+      "url": "url Web",
+      "categoryId": 4,
+      "description": "Web description",
+      "userId": 5,
+      "created_at": "2021-11-22T15:30:58.824Z",
       "id": 6
-    },
-    {
-      "username": "dnmkk",
-      "fullname": "sondeneme2",
-      "password": "d33e40f56fdf593956879892ecc02e9168012bd8",
-      "id": 7
     }
   ],
-  "bookmark": [],
-  "categories": []
+  "categories": [
+    {
+      "title": "Vue.js",
+      "id": 1
+    },
+    {
+      "title": "Frontend",
+      "id": 2
+    },
+    {
+      "title": "Backend",
+      "id": 3
+    },
+    {
+      "title": "Web",
+      "id": 4
+    }
+  ]
 }

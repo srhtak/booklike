@@ -3,9 +3,38 @@ import store from '../store'
 
 const routes = [
     {
+        name: "Settings",
+        path: "/settings",
+        meta: {
+            componentName: "appBookmarkList"
+        },
+        component: () => import("@/views/Account.vue")
+    },
+    {
+        name: "Favorites",
+        path: "/favorites",
+        meta: {
+            componentName: "appBookmarkList"
+        },
+        component: () => import("@/views/Account.vue")
+    },
+    {
+        name: "Likes",
+        path: "/likes",
+        meta: {
+            componentName: "appBookmarkList"
+        },
+        component: () => import("@/views/Account.vue")
+    },
+    {
         name: "HomePage",
         path: "/",
         component: () => import("@/views/Home.vue")
+    },
+    {
+        name: "Account",
+        path: "/account",
+        component: () => import("@/views/Account.vue")
     },
     {
         name: "Register",

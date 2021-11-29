@@ -13,7 +13,8 @@ export default {
 
       this.$appAxios
         .patch(`/users/${this._currentUser.id}`, { bookmarks })
-        .then(() => {
+        .then((bookmark_uptade) => {
+          console.log(bookmark_uptade);
           this.$store.commit("setBookmark", bookmarks);
         });
     },
